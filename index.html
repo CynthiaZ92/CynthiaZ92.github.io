@@ -1,0 +1,76 @@
+---
+layout: default
+---
+<!-- Main -->
+        <div id = "main">
+
+                <!-- One -->
+                <section id="one">
+                        <header class="major">
+                            <h2>About me</h2>
+                        </header>
+                        <p>Hi, I am Xin Zhao (赵欣). I will update my status and share my interests here. For computer science, I'm currently interested in programming languages, distributed programming, type system, concurrency and machine learning. And for spare time, I'm interested in painting, singing, yoga and swimming.</p>
+                        <!-- <ul class="actions">
+                            <li><a href="#" class="button">Learn More</a></li>
+                        </ul> -->
+                    </section>
+
+                <!-- Two -->
+                    <section id="two">
+                        <h2>News</h2>
+                        <div class="coloum">
+                            <article class="col-6 col-12-xsmall work-item">
+                                <!-- <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a> -->
+                                <h3>2021-03-04</h3>
+                                <p>I obtain my PhD degree in Computer Science from kTH Royal Institue of Technology.</p>
+                            </article>
+                            <article class="col-6 col-12-xsmall work-item">
+                                <!-- <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a> -->
+                                <h3>2021-02-23</h3>
+                                <p>I defend my dissertation. <a href="https://youtu.be/dkQheJJUgro">Presentation video is here.</a></p>
+                            </article>
+                            <article class="col-6 col-12-xsmall work-item">
+                                <!-- <a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a> -->
+                                <h3>2020-08-01</h3>
+                                <p>Our paper "Consistency types for replicated data in a higher-order distributed programming language" is accepted by the Art, Science, and Engineering of Programming Journal.</p>
+                            </article>
+                        </div>
+                        <ul class="actions">
+                            <li><a href="#" class="button">See More</a></li>
+                        </ul>
+                    </section>
+
+  <section>
+    {% for post in site.posts limit:1 %}
+      <header>
+        <h1>{{ post.title }}</h1>
+        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      </header>
+      <section>
+        {{ post.content }}
+        <p class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></p>
+      </section>
+    {% endfor %}
+  </section>
+
+  <section>
+    <div class="row">
+      {% for post in site.posts offset:1 %}
+        <article class="{% cycle '6u', '6u$' %} 12u(small)">
+          <header>
+            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+          </header>
+          <section>
+            {{ post.excerpt }}
+          </section>
+          <footer>
+            <ul class="actions">
+              <li><a href="{{ post.url }}" class="button">Read More</a></li>
+              <li class="editor-link"><a href="cloudcannon:collections/{{ post.path }}" class="button"><strong>&#9998;</strong> Edit post</a></li>
+            </ul>
+          </footer>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+</div>
